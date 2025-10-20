@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cindral | Coming Soon</title>
+  <meta name="description" content="Cindral is crafting something new. This page will glow brighter soon." />
+  <meta property="og:title" content="Cindral — Coming Soon" />
+  <meta property="og:description" content="Cindral is crafting something new. This page will glow brighter soon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.png" />
+  <meta name="theme-color" content="#0b1226" />
+  <link rel="icon" href="./Icon.jpeg" />
+  <style>
+    :root{
+      --bg-start:#0b1226; /* deep navy */
+      --bg-end:#020412;   /* almost black */
+      --glow:#4cc9ff;     /* cyan glow */
+      --flame-1:#73d7ff;  /* light cyan */
+      --flame-2:#1fa2ff;  /* blue */
+      --flame-3:#0b6bff;  /* deeper blue */
+      --text:#e9f1ff;     /* near-white */
+      --muted:#9fb3d1;    /* soft slate */
+      --accent:#8be9ff;   /* spark */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:radial-gradient(1200px 800px at 70% 20%, #0e1b3a 0%, transparent 60%),
+               radial-gradient(800px 600px at 20% 80%, #07122b 0%, transparent 60%),
+               linear-gradient(160deg, var(--bg-start), var(--bg-end));
+      overflow:hidden;
+    }
+    .wrap{position:relative; isolation:isolate; min-height:100%; display:grid; place-items:center; padding:clamp(16px, 3vw, 40px)}
+
+    /* Animated subtle grid */
+    .grid-overlay{
+      position:absolute; inset:-10vh; z-index:-2; opacity:0.12;
+      background-image: linear-gradient(#5b6c8f33 1px, transparent 1px), linear-gradient(90deg, #5b6c8f33 1px, transparent 1px);
+      background-size: 40px 40px, 40px 40px;
+      animation: drift 30s linear infinite;
+      mask-image: radial-gradient(60% 60% at 50% 50%, #000 30%, transparent 80%);
+    }
+    @keyframes drift{from{transform:translateY(0)} to{transform:translateY(40px)}}
+
+    /* center card */
+    .card{
+      width:min(900px, 92vw);
+      border-radius:28px; padding: clamp(24px, 6vw, 56px);
+      backdrop-filter: blur(14px) saturate(120%);
+      background: linear-gradient(180deg, #0b1838aa, #0b1733a0);
+      border: 1px solid #2a3b6a66; box-shadow: 0 20px 80px #001a3d66, inset 0 1px 0 #7aa3ff22;
+    }
+
+    .brand{display:flex; align-items:center; gap:16px; letter-spacing:.08em; font-weight:600; color:#b9cdf9; text-transform:uppercase; font-size:13px}
+
+    /* Cindral Flame C (SVG) */
+    .logo{
+      width: clamp(84px, 18vw, 140px); height:auto; filter: drop-shadow(0 0 24px #1fa2ff66) drop-shadow(0 0 60px #1fa2ff44);
+    }
+    .logo-glow { animation: pulse 3s ease-in-out infinite; transform-origin: 50% 50%; }
+    @keyframes pulse{ 0%,100%{ filter:drop-shadow(0 0 18px #1fa2ff55)} 50%{ filter:drop-shadow(0 0 30px #73d7ff88)} }
+
+    h1{margin:16px 0 8px; font-size: clamp(28px, 6vw, 60px); line-height:1.05; letter-spacing:-0.02em}
+    .tag{font-size: clamp(14px, 2.2vw, 18px); color:var(--muted)}
+
+    .actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+    .btn{
+      --bg:#0f1e46; --bd:#274c8f; --shadow:#0a296b88;
+      padding:12px 18px; border-radius:14px; border:1px solid var(--bd); color:var(--text); text-decoration:none; font-weight:600;
+      background: linear-gradient(180deg, #10214e, #0b1a3b);
+      box-shadow: 0 6px 24px var(--shadow), inset 0 1px 0 #7aa3ff33;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 28px #0b296f99, inset 0 1px 0 #a4d4ff55 }
+
+    .btn.secondary{ background:transparent; border-color:#3a5ea8; color:#cfe6ff; }
+
+    /* tiny spark particles */
+    .sparks{ position:absolute; inset:0; pointer-events:none; z-index:-1; }
+    .spark{ position:absolute; width:2px; height:2px; background:var(--accent); border-radius:50%; opacity:.9; box-shadow:0 0 10px var(--accent), 0 0 20px var(--accent); animation: floatUp linear infinite; }
+    @keyframes floatUp{ from{ transform: translateY(20px); opacity:.9 } to{ transform: translateY(-100vh); opacity:0 } }
+
+    /* footer */
+    footer{ margin-top: clamp(18px, 3vw, 28px); color:#9fb3d1; font-size:14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    footer a{ color:#cbe6ff; text-decoration:none; border-bottom:1px dashed #79c9ff55 }
+    footer a:hover{ border-bottom-color:#cbe6ff }
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      .grid-overlay{ animation:none }
+      .logo-glow{ animation:none }
+      .spark{ animation:none }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid-overlay"></div>
+
+    <div class="card" role="region" aria-label="Cindral — Coming Soon">
+      <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap">
+       <img src="./logo.png" width="100px" style="margin-left: -25px;" />
+        <div>
+          <div class="brand">Cindral</div>
+          <h2>Shaped in silence, revealed in radiance.</h2>
+          <h1>Work in Progress</h1>
+          <p class="tag">We’re crafting something bright. This page will glow brighter soon. Until then, you can reach us below.</p>
+        </div>
+      </div>
+      <footer>
+        <span>© <span id="year"></span> Cindral</span>
+        <span>Need something now? <a href="mailto:hello@cindral.org">cindralhq@outlook.com</a></span>
+      </footer>
+    </div>
+
+    <div class="sparks" aria-hidden="true" id="sparks"></div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Generate subtle floating sparks near the center card
+    const container = document.getElementById('sparks');
+    const { width, height } = document.body.getBoundingClientRect();
+    const COUNT = Math.min(90, Math.floor((width * height) / 22000));
+
+    for (let i = 0; i < COUNT; i++) {
+      const s = document.createElement('div');
+      s.className = 'spark';
+      const size = Math.random() * 2 + 1;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      const x = Math.random() * 100; // vw
+      const yDelay = Math.random() * 6; // stagger
+      s.style.left = x + 'vw';
+      s.style.bottom = -10 + 'px';
+      s.style.animationDuration = (8 + Math.random() * 10) + 's';
+      s.style.animationDelay = yDelay + 's';
+      s.style.opacity = 0.7 + Math.random() * 0.3;
+      container.appendChild(s);
+    }
+
+    // Accessibility: if reduced motion, remove sparks
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (media.matches) container.innerHTML = '';
+  </script>
+</body>
+</html>
